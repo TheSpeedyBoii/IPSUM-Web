@@ -134,7 +134,6 @@ input[type="file"]::file-selector-button {
 	color: transparent;
 }
 
-/* Faked label styles and icon */
 input[type="file"]::before {
 	position: absolute;
 	pointer-events: none;

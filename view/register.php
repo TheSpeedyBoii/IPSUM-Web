@@ -1,3 +1,10 @@
+<?php
+    include_once('../model/connect.php');
+    include_once('../controller/controller_register.php');
+
+    $register = new controller_register();
+    $register->returnManejos();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +20,7 @@
         </div>
         <div class="login-info-container">
             <h1 class="title">Regístrate a <span class="title-1">WePlot</span></h1>
-            <form class="input-container" action="POST">
+            <form class="input-container" action="register.php?action=register" method="post">
                 <div class="input-group">
                     <label for="name">Nombre*</label>
                     <input class="input" type="text" id="name" name="name" />
@@ -55,13 +62,13 @@
                     <input class="input" type="password" id="confirm-password" name="confirm-password" />
                 </div>
                 <div class="input-group full-width">
-                    <input class="photo full-width" type="file" id="photo" />
+                    <input class="photo full-width" type="file" id="photo" name="photo" />
                 </div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Unirme a WePlot</button>
                 </div>
                 <div class="input-group full-width">
-                    <p>¿Ya tienes cuenta? <span class="span">Inicia sesión aquí</span></p>
+                    <p>¿Ya tienes cuenta? <a href="login.php"class="span">Inicia sesión aquí</a></p>
                 </div>
             </form>
         </div>
