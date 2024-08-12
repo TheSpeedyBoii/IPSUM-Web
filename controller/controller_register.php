@@ -20,17 +20,15 @@ class controller_register{
         $food = trim($_POST['food']);
         $artist = trim($_POST['artist']);
         $place = trim($_POST['place']);
+        $color = trim($_POST['color']);
         $password = trim($_POST['password']);
-        /*$image = trim($_POST['photo']);*/
         $confirm_password = trim($_POST['confirm-password']);
-        
 
-        if (($password) !== ($confirm_password)) {
+        if ($password !== $confirm_password) {
             echo 'Las contraseñas no coinciden';
             return;
-        }  
-
-
+        }
+        
         if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($password) || empty($confirm_password)) {
             echo 'Por favor, complete todos los campos';
             return;
@@ -38,20 +36,20 @@ class controller_register{
 
         $email_regex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
         if (!preg_match($email_regex, $email)) {
-            echo "La dirección de correo electrónico no es válida";
+            echo 'La dirección de correo electrónico no es válida';
             return;
         }
 
         $connection = new SQL_Connect();
         $user = new User($connection->getConn());
 
-        /*if ($user->emailExist($email)) {
-            echo "El correo electrónico ya está registrado";
+        if ($user->emailExist($email)) {
+            echo 'El correo electrónico ya está registrado';
             return;
         }
-        */
-        $mdPassword = md5($_POST['password']);
-        $user->addUser($name, $last_name, $email, $phone, $mdPassword, $food, $artist, $place);
+
+        $mdPassword = password_hash($password, PASSWORD_DEFAULT);
+        $user->addUser($name, $last_name, $email, $phone, $country, $mdPassword, $food, $artist, $place, $color);
         header('Location: login.php');
         exit;
     }

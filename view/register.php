@@ -39,7 +39,12 @@
                 </div>
                 <div class="input-group">
                     <label for="country">País</label>
-                    <input class="input" type="text" id="country" name="country" />
+                    <select class="input" id="country" name="country">
+                        <option value="Argentina">Argentina</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="México">México</option>
+                        <option value="Japón">Japón</option>
+                    </select>
                 </div>
                 <div class="input-group">
                     <label for="food">Comida favorita</label>
@@ -52,6 +57,10 @@
                 <div class="input-group">
                     <label for="place">Lugar favorito</label>
                     <input class="input" type="text" id="place" name="place" />
+                </div>
+                <div class="input-group">
+                    <label for="place">Color favorito</label>
+                    <input class="input" type="text" id="color" name="color" />
                 </div>
                 <div class="input-group">
                     <label for="password">Contraseña*</label>
