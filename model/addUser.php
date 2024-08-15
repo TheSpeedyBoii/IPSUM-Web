@@ -24,7 +24,7 @@ class User {
     }
         
         public function addUser($name, $last_name, $email, $phone,$country, $mdPassword, $food, $artist, $place, $color) {
-            $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass, id_role) VALUES (?, ?, ?, ?, ?, ?, 1)");
             $stmt->bind_param("ssssss", $name, $last_name, $email, $phone, $country, $mdPassword);
             $stmt->execute();
             
