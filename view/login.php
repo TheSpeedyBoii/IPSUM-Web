@@ -1,18 +1,20 @@
 <?php
-    include_once('../model/connect.php');
-    include_once('../controller/controller_register.php');
+include_once('../model/connect.php');
+include_once('../controller/controller_register.php');
 
-    $register = new controller_register();
-    $register->returnManejos();
+$register = new controller_register();
+$register->returnManejos();
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css" />
     <title>WePlot</title>
 </head>
+
 <body>
     <div class="container">
         <div class="image-container">
@@ -20,14 +22,14 @@
         </div>
         <div class="login-info-container">
             <h1 class="title">Inicia sesión en <span class="title-1">WePlot</span></h1>
-            <form class="input-container" action="register.php?action=register" method="post">
+            <form class="input-container" action="http://localhost/ipsum-web/controller/controller_login.php" method="POST">
                 <div class="input-group full-width">
                     <label for="email">Email*</label>
-                    <input class="input" type="email" id="email" name="email" />
+                    <input class="input" type="email" id="email" name="email" required />
                 </div>
                 <div class="input-group full-width">
                     <label for="password">Contraseña*</label>
-                    <input class="input" type="password" id="password" name="password" />
+                    <input class="input" type="password" id="password" name="password" required />
                 </div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Iniciar sesión</button>
@@ -39,4 +41,5 @@
         </div>
     </div>
 </body>
+
 </html>

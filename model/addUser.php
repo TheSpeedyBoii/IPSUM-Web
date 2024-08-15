@@ -36,6 +36,21 @@ class User {
             
             $stmt->close();
         }
+
+        public function getUser($email, $password){
+            $count = 0;
+            $sql = "SELECT * FROM users WHERE =?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $stmt->bind_result($count);
+            $stmt->fetch();
+            $stmt->close();
+    
+            if ($count > 0) {
+                throw new Exception("Ya existe");
+            }
+        }
         
 }
 
