@@ -1,32 +1,18 @@
 <?php
-class SQL_Connect {
+class Conexion
+{
     private $host = "localhost";
     private $user = "root";
     private $password = "";
-    private $dbname = "db_system";
-    private $conn;
+    private $database = "db_system";
 
-    public function __construct() {
-        $this->conn = mysqli_connect($this->host, $this->user, $this->password);
+    public function conMysql()
+    {
+        $conexion = new mysqli($this->host, $this->user, $this->password, $this->database);
 
-        if ($this->conn === false) {
-            die("SQL is not connected: " . mysqli_connect_error());
+        if ($conexion->connect_error) {
+            die('conexion a la base de datos fallida' . $conexion->connect_error);
         }
-
-        $retval = mysqli_select_db($this->conn, $this->dbname);
-
-        if (!$retval) {
-            die('Could not select database: ' . mysqli_error($this->conn));
-        }
-
-    }
-
-    public function getConn() {
-        return $this->conn;
+        return $conexion;
     }
 }
-
-$connection = new SQL_Connect();
-$conn = $connection->getConn();
-?>
-

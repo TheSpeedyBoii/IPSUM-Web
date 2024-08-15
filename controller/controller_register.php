@@ -40,8 +40,8 @@ class controller_register{
             return;
         }
 
-        $connection = new SQL_Connect();
-        $user = new User($connection->getConn());
+        $connection = new Conexion();
+        $user = new User($connection->conMysql());
 
         if ($user->emailExist($email)) {
             echo 'El correo electrónico ya está registrado';

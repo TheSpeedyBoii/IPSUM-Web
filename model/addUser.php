@@ -24,7 +24,7 @@ class User {
     }
         
         public function addUser($name, $last_name, $email, $phone,$country, $mdPassword, $food, $artist, $place, $color) {
-            $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, password) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssss", $name, $last_name, $email, $phone, $country, $mdPassword);
             $stmt->execute();
             
@@ -35,6 +35,21 @@ class User {
             $stmt->execute();
             
             $stmt->close();
+        }
+
+        public function getUser($email, $password){
+            $count = 0;
+            $sql = "SELECT * FROM users WHERE =?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $stmt->bind_result($count);
+            $stmt->fetch();
+            $stmt->close();
+    
+            if ($count > 0) {
+                throw new Exception("Ya existe");
+            }
         }
         
 }
