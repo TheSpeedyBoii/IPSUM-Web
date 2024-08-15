@@ -22,7 +22,8 @@ $register->returnManejos();
         </div>
         <div class="login-info-container">
             <h1 class="title">Inicia sesión en <span class="title-1">WePlot</span></h1>
-            <form class="input-container" action="http://localhost/ipsum-web/controller/controller_login.php" method="POST">
+            <form class="input-container" action="../controller/controller_login.php" method="POST">
+
                 <div class="input-group full-width">
                     <label for="email">Email*</label>
                     <input class="input" type="email" id="email" name="email" required />
