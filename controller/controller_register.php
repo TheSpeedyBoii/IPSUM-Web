@@ -25,4 +25,3 @@ $user->incorrect_password($password, $confirm_password);
 $user->validateEmail($email);
 $user->emailExist($email);
 $user->addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $food, $artist, $place, $color);
-$user->addPhoto($photo, $conn);

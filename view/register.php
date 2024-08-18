@@ -15,7 +15,7 @@
         </div>
         <div class="login-info-container">
             <h1 class="title">Regístrate a <span class="title-1">WePlot</span></h1>
-            <form class="input-container" action="../controller/controller_register.php" method="post">
+            <form class="input-container" action="../controller/controller_register.php" enctype="multipart/form-data" method="post">
                 <div class="input-group">
                     <label for="name">Nombre*</label>
                     <input class="input" type="text" id="name" name="name" />
@@ -66,7 +66,7 @@
                     <input class="input" type="password" id="confirm-password" name="confirm-password" />
                 </div>
                 <div class="input-group full-width">
-                    <input class="photo full-width" type="file" id="photo" name="photo" />
+                    <input class="photo full-width" type="file" id="photo" name="photo" required/>
                 </div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Unirme a WePlot</button>
