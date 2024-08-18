@@ -31,7 +31,8 @@ class User
         }
     }
 
-    /*public function validateEmail($email){
+    public function validateEmail($email)
+    {
         $email_regex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
         if (!preg_match($email_regex, $email)) {
             echo "
@@ -50,8 +51,8 @@ class User
                 });
                 </script>";
             exit();
-        }    
-    }*/
+        }
+    }
     public function emailExist($email)
     {
         $count = 0;
@@ -83,9 +84,23 @@ class User
         }
     }
 
-    public function addUser($name, $last_name, $email, $phone, $country, $password, $role, $food, $artist, $place, $color)
+    public function addPhoto($photo, $conn)
     {
-        if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($food) || empty($artist) || empty($place)  || empty($color)) {
+        $photo_name = $photo['name'];
+        $photo_tmp = $photo['tmp_name'];
+        // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
+        $photo_folder = 'C:\wamp64\www\IPSUM-Web\profile_photos';
+        $folder_destiny = $photo_folder . $photo_name;
+        // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
+        
+        return false;
+    }
+
+
+
+    public function addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $food, $artist, $place, $color)
+    {
+        if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($food) || empty($artist) || empty($place)  || empty($color) || empty($photo))  {
             echo "
                     <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
                     <script language='JavaScript'>
@@ -104,18 +119,34 @@ class User
         } else {
             $mdPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass, id_role) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssss", $name, $last_name, $email, $phone, $country, $mdPassword, $role);
-            $stmt->execute();
+            $photo_name = $photo['name'];
+            $photo_tmp = $photo['tmp_name'];
+            // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
+            $photo_folder = 'C:\wamp64\www\IPSUM-Web\profile_photos\\';
+            $folder_destiny = $photo_folder . $photo_name;
+            if (move_uploaded_file($photo_tmp, $folder_destiny)) {
 
-            $userId = $this->connection->insert_id;
+                $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass, photo, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssssssss", $name, $last_name, $email, $phone, $country, $mdPassword, $folder_destiny, $role);
+                $stmt->execute();
+    
+                $userId = $this->connection->insert_id;
+    
+                $stmt = $this->connection->prepare("INSERT INTO questions (user_id, favorite_food, favorite_artist, favorite_place, favorite_color) VALUES (?, ?, ?, ?, ?)");
+                $stmt->bind_param("issss", $userId, $food, $artist, $place, $color);
+                $stmt->execute();
+    
+                $stmt->close();
+                echo '<script>window.location.href="../view/login.php";</script>';
+               
+            } else {
+                echo "<script>console.log('salio mal al mover');</script>";
+            }
 
-            $stmt = $this->connection->prepare("INSERT INTO questions (user_id, favorite_food, favorite_artist, favorite_place, favorite_color) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("issss", $userId, $food, $artist, $place, $color);
-            $stmt->execute();
-
-            $stmt->close();
-            echo '<script>window.location.href="../view/login.php";</script>';
         }
     }
 }
+// $sql = "INSERT INTO users (photo) VALUES ('$folder_destiny')";
+// if ($this->connection->query($sql)) {
+//     return true;
+// }
