@@ -1,10 +1,3 @@
-<?php
-include_once('../model/connect.php');
-include_once('../controller/controller_register.php');
-
-$register = new controller_register();
-$register->returnManejos();
-?>
 <!DOCTYPE html>
 <html lang="es">
 
