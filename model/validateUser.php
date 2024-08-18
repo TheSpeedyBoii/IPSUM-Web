@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class User
 {
@@ -20,8 +21,10 @@ class User
         $validar_login = $this->conexion->query("SELECT * FROM users WHERE email ='$this->email'");
         if ($validar_login->num_rows > 0) {
             $usuarioBD = $validar_login->fetch_assoc();
+            $validate_name = $usuarioBD['first_name'];
             $passHash = $usuarioBD['pass'];
-            // $hashContraseñaBD = $usuarioBD['contrasena'];
+            $_SESSION["Name"] = $validate_name;
+            var_dump($_SESSION["Name"]);
             if (password_verify($this->password, $passHash)) {
                 echo '<script>window.location.href="../view/welcome.php";</script>';
                 exit;
@@ -62,4 +65,3 @@ class User
             </script>";
     }
 }
-?>
