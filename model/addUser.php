@@ -19,7 +19,22 @@ class User {
         $stmt->close();
 
         if ($count > 0) {
-            throw new Exception("Ya existe");
+            echo "
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script language='JavaScript'>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'El usuario ya existe',
+                        confirmButtonColor: '#D63030',
+                        confirmButtonText: 'OK',
+                        timer: 6000
+                    }).then(() => {
+                        location.assign('../view/register.php');
+                    });
+                });
+                </script>";
+                exit();
         }
     }
         
@@ -37,20 +52,6 @@ class User {
             $stmt->close();
         }
 
-        public function getUser($email, $password){
-            $count = 0;
-            $sql = "SELECT * FROM users WHERE =?";
-            $stmt = $this->connection->prepare($sql);
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $stmt->bind_result($count);
-            $stmt->fetch();
-            $stmt->close();
-    
-            if ($count > 0) {
-                throw new Exception("Ya existe");
-            }
-        }
         
 }
 
