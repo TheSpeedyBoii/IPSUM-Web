@@ -84,20 +84,6 @@ class User
         }
     }
 
-    public function addPhoto($photo, $conn)
-    {
-        $photo_name = $photo['name'];
-        $photo_tmp = $photo['tmp_name'];
-        // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
-        $photo_folder = 'C:\wamp64\www\IPSUM-Web\profile_photos';
-        $folder_destiny = $photo_folder . $photo_name;
-        // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
-        
-        return false;
-    }
-
-
-
     public function addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $food, $artist, $place, $color)
     {
         if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($food) || empty($artist) || empty($place)  || empty($color) || empty($photo))  {
@@ -146,7 +132,3 @@ class User
         }
     }
 }
-// $sql = "INSERT INTO users (photo) VALUES ('$folder_destiny')";
-// if ($this->connection->query($sql)) {
-//     return true;
-// }
