@@ -18,13 +18,12 @@ class User
 
     public function validateLogin()
     {
-        $validar_login = $this->conexion->query("SELECT * FROM users WHERE email ='$this->email'");
-        if ($validar_login->num_rows > 0) {
-            $usuarioBD = $validar_login->fetch_assoc();
-            $validate_name = $usuarioBD['first_name'];
-            $passHash = $usuarioBD['pass'];
-            $_SESSION["Name"] = $validate_name;
-            var_dump($_SESSION["Name"]);
+        $validate_login = $this->conexion->query("SELECT * FROM users WHERE email ='$this->email'");
+        if ($validate_login->num_rows > 0) {
+            $user_DB = $validate_login->fetch_assoc();
+            $validate_email = $user_DB['email'];
+            $passHash = $user_DB['pass'];
+            $_SESSION["Email"] = $validate_email;
             if (password_verify($this->password, $passHash)) {
                 echo '<script>window.location.href="../view/welcome.php";</script>';
                 exit;
