@@ -7,43 +7,37 @@ if (!isset($_SESSION["Email"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WePlot</title>
     <link rel="stylesheet" href="styles/welcome.css" />
 </head>
 
 <body>
     <?php require_once('header.php') ?>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th>Teléfono</th>
-                <th>Pregunta 1</th>
-                <th>Pregunta 2</th>
-                <th>Pregunta 3</th>
-                <th>Pregunta 4</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td><?php echo $email ?></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="profile-card">
+        <div class="profile-image">
+            <img src="../profile_photos/imagen.jpg" alt="Profile Image">
+        </div>
+
+        <div class="profile-info">
+            <div class="left-column">
+                <p><strong>Nombre:</strong> Jose</p>
+                <p><strong>Apellido:</strong> Agudelo</p>
+                <p><strong>Email:</strong> <?php echo $email ?></p> 
+                <p><strong>Teléfono:</strong> Agudelo</p>
+            </div>
+
+            <div class="right-column">
+                <p><strong>Pregunta 1:</strong> Mondongo</p>
+                <p><strong>Pregunta 2:</strong> Mondongo</p>
+                <p><strong>Pregunta 3:</strong> Mondongo</p>
+                <p><strong>Pregunta 4:</strong> Mondongo</p>
+            </div>
+        </div>
+    </div>
 </body>
+
 
 </html>
