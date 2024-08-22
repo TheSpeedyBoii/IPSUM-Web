@@ -15,7 +15,8 @@
         </div>
         <div class="login-info-container">
             <h1 class="title">Regístrate a <span class="title-1">WePlot</span></h1>
-            <form class="input-container" action="../controller/controller_register.php" enctype="multipart/form-data" method="post">
+            <form class="input-container" action="../controller/controller_register.php" enctype="multipart/form-data"
+                method="post">
                 <div class="input-group">
                     <label for="name">Nombre*</label>
                     <input class="input" type="text" id="name" name="name" />
@@ -43,19 +44,19 @@
                 </div>
                 <div class="input-group">
                     <label for="food">Comida favorita</label>
-                    <input class="input" type="text" id="food" name="food" />
+                    <input class="input" type="text" id="question-1" name="question-1" />
                 </div>
                 <div class="input-group">
                     <label for="artist">Artista favorito</label>
-                    <input class="input" type="text" id="artist" name="artist" />
+                    <input class="input" type="text" id="question-2" name="question-2" />
                 </div>
                 <div class="input-group">
                     <label for="place">Lugar favorito</label>
-                    <input class="input" type="text" id="place" name="place" />
+                    <input class="input" type="text" id="question-3" name="question-3" />
                 </div>
                 <div class="input-group">
                     <label for="place">Color favorito</label>
-                    <input class="input" type="text" id="color" name="color" />
+                    <input class="input" type="text" id="question-4" name="question-4" />
                 </div>
                 <div class="input-group">
                     <label for="password">Contraseña*</label>
@@ -66,7 +67,7 @@
                     <input class="input" type="password" id="confirm-password" name="confirm-password" />
                 </div>
                 <div class="input-group full-width">
-                    <input class="photo full-width" type="file" id="photo" name="photo" required/>
+                    <input class="photo full-width" type="file" id="photo" name="photo" required />
                 </div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Unirme a WePlot</button>
