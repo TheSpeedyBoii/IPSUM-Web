@@ -16,6 +16,7 @@ $question3 = $_POST['question-3'];
 $question4 = $_POST['question-4'];
 $photo = $_FILES['photo'];
 $role = 1;
+
 $connection = new Connection();
 $conn = $connection->conMysql();
 

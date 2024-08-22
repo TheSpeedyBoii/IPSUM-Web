@@ -86,7 +86,7 @@ class User
 
     public function addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $question1, $question2, $question3, $question4)
     {
-        if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($question1) || empty($question2)  || empty($question3) || empty($question4))  {
+        if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($question1) || empty($question2) || empty($question3) || empty($question4)) {
             echo "
                     <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
                     <script language='JavaScript'>
@@ -105,26 +105,26 @@ class User
         } else {
             $PasswordHash = password_hash($password, PASSWORD_DEFAULT);
 
-            $photo_name = $photo['name'];
+            $photo_name = $name . $photo['name'];
             $photo_tmp = $photo['tmp_name'];
             // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
-            $photo_folder = 'C:\wamp64\www\IPSUM-Web\profile_photos\\';
+            $photo_folder = 'C:/wamp64/www/IPSUM-Web/profile_photos/';
             $folder_destiny = $photo_folder . $photo_name;
             if (move_uploaded_file($photo_tmp, $folder_destiny)) {
 
                 $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass, photo, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("ssssssss", $name, $last_name, $email, $phone, $country, $PasswordHash, $folder_destiny, $role);
                 $stmt->execute();
-    
+
                 $userId = $this->connection->insert_id;
-    
+
                 $stmt = $this->connection->prepare("INSERT INTO questions (user_id, question_1, question_2, question_3, question_4) VALUES (?, ?, ?, ?, ?)");
                 $stmt->bind_param("issss", $userId, $question1, $question2, $question3, $question4);
                 $stmt->execute();
-    
+
                 $stmt->close();
                 echo '<script>window.location.href="../view/login.php";</script>';
-               
+
             } else {
                 echo "<script>console.log('Salio mal al mover');</script>";
             }
