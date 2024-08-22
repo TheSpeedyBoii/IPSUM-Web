@@ -6,9 +6,9 @@ require_once("../model/validateUser.php");
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$conexion = new Conexion();
-$conn = $conexion->conMysql();
+$connection = new Connection();
+$conn = $connection->conMysql();
 
-$validarr = new User($email, $password, $conn);
-$validarr->validateLogin();
+$validate = new User($email, $password, $conn);
+$validate->validateLogin();
 
