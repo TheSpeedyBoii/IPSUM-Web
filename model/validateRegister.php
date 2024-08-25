@@ -130,4 +130,42 @@ class User
 
         }
     }
+
+
+    public function reCaptcha($secret)
+    {
+
+        $response = false;
+        if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+
+            $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+            $responseData = json_decode($verifyResponse);
+
+            if ($responseData->success) {
+
+                $response = true;
+
+
+            } else {
+
+                echo "
+                    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                    <script language='JavaScript'>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error en la validación reCAPTCHA',
+                            confirmButtonColor: '#D63030',
+                            confirmButtonText: 'OK',
+                            timer: 6000
+                        }).then(() => {
+                            location.assign('../view/register.php');
+                        });
+                    });
+                    </script>";
+            }
+        }
+
+        return $response;
+    }
 }

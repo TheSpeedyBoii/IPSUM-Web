@@ -22,10 +22,12 @@ class User
         if ($validate_login->num_rows > 0) {
             $user_DB = $validate_login->fetch_assoc();
             $validate_email = $user_DB['email'];
+            $role = $user_DB['id_role'];
             $passHash = $user_DB['pass'];
             $_SESSION["Email"] = $validate_email;
+            $_SESSION["Role"] = $role;
             if (password_verify($this->password, $passHash)) {
-                if ($user_DB['id_role'] == 2){
+                if ($role == 2){
                     echo '<script>window.location.href="../view/admin_panel.php";</script>';
                 }else{
                     echo '<script>window.location.href="../view/welcome.php";</script>';
