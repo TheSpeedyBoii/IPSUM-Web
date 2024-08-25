@@ -1,10 +1,12 @@
 <?php
 session_start();
-$email = $_SESSION["Email"];
-if (!isset($_SESSION["Email"])) {
+if (!isset($_SESSION["Role"])) {
     echo '<script>window.location.href="../view/login.php";</script>';
+} else if ($_SESSION["Role"] == "1") {
+    echo '<script>window.location.href="../view/welcome.php";</script>';
     exit();
-}
+} 
+
 require_once("../controller/controller_users.php");
 ?>
 

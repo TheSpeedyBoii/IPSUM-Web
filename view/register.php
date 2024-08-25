@@ -70,7 +70,7 @@
                 <div class="input-group full-width">
                     <input class="photo full-width" type="file" id="photo" name="photo" required />
                 </div>
-                <div class="g-recaptcha" data-sitekey="6Ld6GS8qAAAAAAzSx5bARiEZvHNObcsXYaQFItWy"></div>
+                <div class="g-recaptcha" data-sitekey="6Le9Iy8qAAAAANMj284IeJEhcTObT4WNwhTTa1h2"></div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Unirme a WePlot</button>
                 </div>

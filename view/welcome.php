@@ -1,6 +1,5 @@
 <?php
 session_start();
-$email = $_SESSION["Email"];
 if (!isset($_SESSION["Email"])) {
     echo '<script>window.location.href="../view/login.php";</script>';
     exit();
