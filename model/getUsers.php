@@ -9,7 +9,7 @@ class User
         $this->email = $email;
         $this->connection = $conn;
     }
-
+    
     public function getUser()
     {
         $getUser = $this->connection->query("
@@ -36,16 +36,21 @@ class User
     public function getAllUsers()
     {
         $getUsers = $this->connection->query("
-        SELECT users.*, questions.question_1, questions.question_2, questions.question_3, questions.question_4
-        FROM users
-        LEFT JOIN questions ON users.user_id = questions.user_id");
+        SELECT users.*, 
+           questions.question_1, questions.question_2, questions.question_3, questions.question_4,
+           roles.role
+            FROM users
+            LEFT JOIN questions ON users.user_id = questions.user_id
+            LEFT JOIN roles ON users.id_role = roles.id_role
+        ");
+
 
         $allusersArray = array();
 
         if ($getUsers->num_rows > 0) {
 
             while ($userData = $getUsers->fetch_assoc()) {
-            
+
                 $absolutePath = 'C:/wamp64/www/IPSUM-Web/';
                 $relativePath = str_replace($absolutePath, '../', $userData['photo']);
                 $userData['photo'] = $relativePath;

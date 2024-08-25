@@ -26,7 +26,7 @@ require_once("../controller/controller_users.php");
             <label for="question_2">Pregunta 2</label>
             <input type="text" name="question-2" id="question_2" placeholder="">
             <label for="question_3">Pregunta 3</label>
-            <input type="email" name="question-3" id="question_3" placeholder="">
+            <input type="text" name="question-3" id="question_3" placeholder="">
             <label for="question_4">Pregunta 4</label>
             <input type="text" name="question-4" id="question_4" placeholder="">
             <button type="submit">Actualizar Preguntas</button>
@@ -40,6 +40,7 @@ require_once("../controller/controller_users.php");
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Correo</th>
+                <th>Rol</th>
                 <th>País</th>
                 <th>Teléfono</th>
                 <th>Pregunta 1</th>
@@ -56,6 +57,7 @@ require_once("../controller/controller_users.php");
                         <td><?php echo htmlspecialchars($user['first_name']); ?></td>
                         <td><?php echo htmlspecialchars($user['last_name']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
+                        <td><?php echo htmlspecialchars($user['role']); ?></td>
                         <td><?php echo htmlspecialchars($user['country']); ?></td>
                         <td><?php echo htmlspecialchars($user['phone']); ?></td>
                         <td><?php echo htmlspecialchars($user['question_1']); ?></td>

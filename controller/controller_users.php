@@ -10,3 +10,4 @@ $conn = $connection->conMysql();
 
 $getUser = new User($email, $conn);
 $userData = $getUser->getUser();
+$allUsers = $getUser->getAllUsers();
