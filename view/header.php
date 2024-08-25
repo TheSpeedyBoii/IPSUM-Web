@@ -10,7 +10,10 @@
 
     <header>
         <img src="images/logo.svg" alt="Logo">
-        <button id="end-session">Cerrar Sesión</button>
+        <form action="../model/logout.php" method="post">
+            <button type="submit" id="end-session">Cerrar Sesión</button>
+        </form>
+
     </header>
 
 </body>
