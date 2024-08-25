@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/register.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>WePlot</title>
 </head>
 
@@ -69,6 +70,7 @@
                 <div class="input-group full-width">
                     <input class="photo full-width" type="file" id="photo" name="photo" required />
                 </div>
+                <div class="g-recaptcha" data-sitekey="6Ld6GS8qAAAAAAzSx5bARiEZvHNObcsXYaQFItWy"></div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Unirme a WePlot</button>
                 </div>
