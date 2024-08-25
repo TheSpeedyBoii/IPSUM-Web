@@ -25,7 +25,11 @@ class User
             $passHash = $user_DB['pass'];
             $_SESSION["Email"] = $validate_email;
             if (password_verify($this->password, $passHash)) {
-                echo '<script>window.location.href="../view/welcome.php";</script>';
+                if ($user_DB['id_role'] == 2){
+                    echo '<script>window.location.href="../view/admin_panel.php";</script>';
+                }else{
+                    echo '<script>window.location.href="../view/welcome.php";</script>';
+                }
                 exit;
             } else {
                 echo "
