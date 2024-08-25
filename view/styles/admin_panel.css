@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column; 
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    height: calc(100vh - 70px); 
+  }
+  
+  .form-container {
+    width: 20%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+  }
+  
+  .form-container input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .table-container {
+    width: 80%; 
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: auto; 
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto; 
+    }
+  
+    .form-container, .table-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .form-container {
+      border-right: none; 
+    }
+  
+    table {
+      font-size: 16px; 
+    }
+  }

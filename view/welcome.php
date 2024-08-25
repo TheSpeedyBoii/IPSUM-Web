@@ -5,6 +5,7 @@ if (!isset($_SESSION["Email"])) {
     echo '<script>window.location.href="../view/login.php";</script>';
     exit();
 }
+require_once("../controller/controller_users.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,22 +19,24 @@ if (!isset($_SESSION["Email"])) {
     <?php require_once('header.php') ?>
     <div class="profile-card">
         <div class="profile-image">
-            <img src="../profile_photos/imagen.jpg" alt="Profile Image">
+        <img src="<?php echo htmlspecialchars($userData['photo'] ?? ''); ?>" alt="Profile Image">
         </div>
 
         <div class="profile-info">
             <div class="left-column">
-                <p><strong>Nombre:</strong> Jose</p>
-                <p><strong>Apellido:</strong> Agudelo</p>
-                <p><strong>Email:</strong> <?php echo $email ?></p> 
-                <p><strong>Teléfono:</strong> Agudelo</p>
+                <p><strong>Nombre:</strong> <?php echo htmlspecialchars($userData['first_name'] ?? ''); ?></p>
+                <p><strong>Apellido:</strong> <?php echo htmlspecialchars($userData['last_name'] ?? ''); ?></p>
+                <p><strong>Email:</strong> <?php echo htmlspecialchars($userData['email'] ?? ''); ?></p>
+                <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($userData['phone'] ?? ''); ?></p>
+                <p><strong>Pais:</strong> <?php echo htmlspecialchars($userData['country'] ?? ''); ?></p>
+
             </div>
 
             <div class="right-column">
-                <p><strong>Pregunta 1:</strong> Mondongo</p>
-                <p><strong>Pregunta 2:</strong> Mondongo</p>
-                <p><strong>Pregunta 3:</strong> Mondongo</p>
-                <p><strong>Pregunta 4:</strong> Mondongo</p>
+                <p><strong>Pregunta 1:</strong> <?php echo htmlspecialchars($userData['question_1'] ?? ''); ?></p>
+                <p><strong>Pregunta 2:</strong> <?php echo htmlspecialchars($userData['question_2'] ?? ''); ?></p>
+                <p><strong>Pregunta 3:</strong> <?php echo htmlspecialchars($userData['question_3'] ?? ''); ?></p>
+                <p><strong>Pregunta 4:</strong> <?php echo htmlspecialchars($userData['question_4'] ?? ''); ?></p>
             </div>
         </div>
     </div>
