@@ -11,10 +11,14 @@ $phone = $_POST['phone'];
 $country = $_POST['country'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm-password'];
-$question1 = $_POST['question-1'];
-$question2 = $_POST['question-2'];
-$question3 = $_POST['question-3'];
-$question4 = $_POST['question-4'];
+$question1 = $_POST['question-1-label'];
+$question2 = $_POST['question-2-label'];
+$question3 = $_POST['question-3-label'];
+$question4 = $_POST['question-4-label'];
+$answer1 = $_POST['answer-1'];
+$answer2 = $_POST['answer-2'];
+$answer3 = $_POST['answer-3'];
+$answer4 = $_POST['answer-4'];
 $photo = $_FILES['photo'];
 $role = 1;
 
@@ -27,7 +31,7 @@ if ($response) {
     $user->incorrect_password($password, $confirm_password);
     $user->validateEmail($email);
     $user->emailExist($email);
-    $user->addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $question1, $question2, $question3, $question4);
+    $user->addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $answer1, $answer2, $answer3, $answer4, $question1, $question2, $question3, $question4);
 
 } else {
     echo "

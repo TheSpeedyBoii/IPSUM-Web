@@ -84,9 +84,9 @@ class User
         }
     }
 
-    public function addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $question1, $question2, $question3, $question4)
+    public function addUser($name, $last_name, $email, $phone, $country, $password, $photo, $role, $answer1, $answer2, $answer3, $answer4, $question1, $question2, $question3, $question4)
     {
-        if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($question1) || empty($question2) || empty($question3) || empty($question4)) {
+        if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($answer1) || empty($answer2) || empty($answer3) || empty($answer4)) {
             echo "
                     <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
                     <script language='JavaScript'>
@@ -111,14 +111,16 @@ class User
             $folder_destiny = $photo_folder . $photo_name;
             if (move_uploaded_file($photo_tmp, $folder_destiny)) {
 
+                $id= 1;
+
                 $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass, photo, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("ssssssss", $name, $last_name, $email, $phone, $country, $PasswordHash, $folder_destiny, $role);
                 $stmt->execute();
 
                 $userId = $this->connection->insert_id;
 
-                $stmt = $this->connection->prepare("INSERT INTO questions (user_id, question_1, question_2, question_3, question_4) VALUES (?, ?, ?, ?, ?)");
-                $stmt->bind_param("issss", $userId, $question1, $question2, $question3, $question4);
+                $stmt = $this->connection->prepare("INSERT INTO answers (id_user, question_1, answer_1, question_2, answer_2, question_3, answer_3, question_4, answer_4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("issssssss", $userId, $question1, $answer1, $question2, $answer2, $question3, $answer3, $question4, $answer4);
                 $stmt->execute();
 
                 $stmt->close();
