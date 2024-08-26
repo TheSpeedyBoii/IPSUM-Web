@@ -32,10 +32,10 @@ require_once("../controller/controller_users.php");
             </div>
 
             <div class="right-column">
-                <p><strong>Pregunta 1:</strong> <?php echo htmlspecialchars($userData['question_1'] ?? ''); ?></p>
-                <p><strong>Pregunta 2:</strong> <?php echo htmlspecialchars($userData['question_2'] ?? ''); ?></p>
-                <p><strong>Pregunta 3:</strong> <?php echo htmlspecialchars($userData['question_3'] ?? ''); ?></p>
-                <p><strong>Pregunta 4:</strong> <?php echo htmlspecialchars($userData['question_4'] ?? ''); ?></p>
+                <p><strong><?php echo htmlspecialchars($userData['question_1'] ?? ''); ?>:</strong> <?php echo htmlspecialchars($userData['answer_1'] ?? ''); ?></p>
+                <p><strong><?php echo htmlspecialchars($userData['question_2'] ?? ''); ?>:</strong> <?php echo htmlspecialchars($userData['answer_2'] ?? ''); ?></p>
+                <p><strong><?php echo htmlspecialchars($userData['question_3'] ?? ''); ?>:</strong> <?php echo htmlspecialchars($userData['answer_3'] ?? ''); ?></p>
+                <p><strong><?php echo htmlspecialchars($userData['question_4'] ?? ''); ?>:</strong> <?php echo htmlspecialchars($userData['answer_4'] ?? ''); ?></p>
             </div>
         </div>
     </div>

@@ -24,13 +24,13 @@ require_once("../controller/controller_users.php");
         <div class="form-container">
         <form action="" method="POST">
             <label for="question_1">Pregunta 1</label>
-            <input type="text" name="question-1" id="question_1" placeholder="">
+            <input type="text" name="question-1" id="question_1" placeholder="" required>
             <label for="question_2">Pregunta 2</label>
-            <input type="text" name="question-2" id="question_2" placeholder="">
+            <input type="text" name="question-2" id="question_2" placeholder="" required>
             <label for="question_3">Pregunta 3</label>
-            <input type="text" name="question-3" id="question_3" placeholder="">
+            <input type="text" name="question-3" id="question_3" placeholder="" required>
             <label for="question_4">Pregunta 4</label>
-            <input type="text" name="question-4" id="question_4" placeholder="">
+            <input type="text" name="question-4" id="question_4" placeholder="" required>
             <button type="submit">Actualizar Preguntas</button>
         </form>
     </div>
@@ -46,9 +46,13 @@ require_once("../controller/controller_users.php");
                 <th>País</th>
                 <th>Teléfono</th>
                 <th>Pregunta 1</th>
+                <th>Respuesta 2</th>
                 <th>Pregunta 2</th>
+                <th>Respuesta 2</th>
                 <th>Pregunta 3</th>
+                <th>Respuesta 3</th>
                 <th>Pregunta 4</th>
+                <th>Respuesta 4</th>
             </tr>
         </thead>
         <tbody>
@@ -63,9 +67,13 @@ require_once("../controller/controller_users.php");
                         <td><?php echo htmlspecialchars($user['country']); ?></td>
                         <td><?php echo htmlspecialchars($user['phone']); ?></td>
                         <td><?php echo htmlspecialchars($user['question_1']); ?></td>
+                        <td><?php echo htmlspecialchars($user['answer_1']); ?></td>
                         <td><?php echo htmlspecialchars($user['question_2']); ?></td>
+                        <td><?php echo htmlspecialchars($user['answer_2']); ?></td>
                         <td><?php echo htmlspecialchars($user['question_3']); ?></td>
+                        <td><?php echo htmlspecialchars($user['answer_3']); ?></td>
                         <td><?php echo htmlspecialchars($user['question_4']); ?></td>
+                        <td><?php echo htmlspecialchars($user['answer_4']); ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
