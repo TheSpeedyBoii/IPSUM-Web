@@ -13,9 +13,9 @@ class User
     public function getUser()
     {
         $getUser = $this->connection->query("
-            SELECT users.*, questions.question_1, questions.question_2, questions.question_3, questions.question_4
+            SELECT users.*, answers.*
             FROM users
-            LEFT JOIN questions ON users.user_id = questions.user_id
+            LEFT JOIN answers ON users.user_id = answers.id_user
             WHERE users.email = '$this->email'");
 
         $userArray = array();
@@ -37,10 +37,10 @@ class User
     {
         $getUsers = $this->connection->query("
         SELECT users.*, 
-           questions.question_1, questions.question_2, questions.question_3, questions.question_4,
+           answers.*,
            roles.role
             FROM users
-            LEFT JOIN questions ON users.user_id = questions.user_id
+            LEFT JOIN answers ON users.user_id = answers.id_user
             LEFT JOIN roles ON users.id_role = roles.id_role
         ");
 
