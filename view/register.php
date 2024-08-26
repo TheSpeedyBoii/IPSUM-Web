@@ -15,7 +15,7 @@
             <img class="img" src="images/register.png" alt="Imagen de registro" />
         </div>
         <div class="login-info-container">
-            <h1 class="title">Regístrate a <span class="title-1">WePlot</span></h1>
+        <img class="title-image" src="images/weplot.jpeg" alt="Regístrate a WePlot" />
             <form class="input-container" action="../controller/controller_register.php" enctype="multipart/form-data"
                 method="post">
                 <div class="input-group">
