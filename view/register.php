@@ -1,3 +1,6 @@
+<?php
+require_once("../controller/controller_questions.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -44,20 +47,24 @@
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="food">Comida favorita</label>
-                    <input class="input" type="text" id="question-1" name="question-1" />
+                    <label for="food"><?php echo htmlspecialchars($questions[0]['question'] ?? ''); ?></label>
+                    <input type="hidden" name="question-1-label" value="<?php echo htmlspecialchars($questions[0]['question'] ?? ''); ?>" />
+                    <input class="input" type="text" id="question-1" name="answer-1" />
                 </div>
                 <div class="input-group">
-                    <label for="artist">Artista favorito</label>
-                    <input class="input" type="text" id="question-2" name="question-2" />
+                    <label for="artist"><?php echo htmlspecialchars($questions[1]['question'] ?? ''); ?></label>
+                    <input type="hidden" name="question-2-label" value="<?php echo htmlspecialchars($questions[1]['question'] ?? ''); ?>" />
+                    <input class="input" type="text" id="question-2" name="answer-2" />
                 </div>
                 <div class="input-group">
-                    <label for="place">Lugar favorito</label>
-                    <input class="input" type="text" id="question-3" name="question-3" />
+                    <label for="place"><?php echo htmlspecialchars($questions[2]['question'] ?? ''); ?></label>
+                    <input type="hidden" name="question-3-label" value="<?php echo htmlspecialchars($questions[2]['question'] ?? ''); ?>" />
+                    <input class="input" type="text" id="question-3" name="answer-3" />
                 </div>
                 <div class="input-group">
-                    <label for="place">Color favorito</label>
-                    <input class="input" type="text" id="question-4" name="question-4" />
+                    <label for="color"><?php echo htmlspecialchars($questions[3]['question'] ?? ''); ?></label>
+                    <input type="hidden" name="question-4-label" value="<?php echo htmlspecialchars($questions[3]['question'] ?? ''); ?>" />
+                    <input class="input" type="text" id="question-4" name="answer-4" />
                 </div>
                 <div class="input-group">
                     <label for="password">Contraseña*</label>
