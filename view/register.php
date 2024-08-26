@@ -67,12 +67,12 @@
                     <label for="confirm-password">Confirmar Contraseña*</label>
                     <input class="input" type="password" id="confirm-password" name="confirm-password" />
                 </div>
-                <div class="input-group full-width">
-                    <input class="photo full-width" type="file" id="photo" name="photo" required />
+                <div class="input-group">
+                    <input class="photo" type="file" id="photo" name="photo" required />
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le9Iy8qAAAAANMj284IeJEhcTObT4WNwhTTa1h2"></div>
                 <div class="input-group full-width">
-                    <button class="btn full-width" type="submit" id="send">Unirme a WePlot</button>
+                    <button class="btn" type="submit" id="send">Unirme a WePlot</button>
                 </div>
                 <div class="input-group full-width">
                     <p>¿Ya tienes cuenta? <a href="login.php" class="span">Inicia sesión aquí</a></p>

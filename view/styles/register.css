@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
@@ -116,7 +117,6 @@ html, body {
 	align-items: center;
 }
 
-
 .btn {
 	cursor: pointer;
 	border: 0px solid;
@@ -125,7 +125,7 @@ html, body {
 	color: rgb(255, 255, 255);
 	padding: 20px 30px;
 	transition: all 674ms ease 0s;
-	width: 300px;
+	width: 80%;
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 	border-radius: 1px;
 	background: rgb(157, 42, 134);
@@ -135,6 +135,7 @@ html, body {
 	align-items: center;
 	flex-direction: row-reverse;
 	--hover-bgc: #3a113d;
+	grid-column: span 2;
 }
 
 .btn:hover {

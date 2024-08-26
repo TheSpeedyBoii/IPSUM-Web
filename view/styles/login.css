@@ -112,31 +112,32 @@ body {
 }
 
 .btn {
-	cursor: pointer;
-	border: 0px solid;
-	font-size: 14px;
-	font-style: bold;
-	color: rgb(255, 255, 255);
-	padding: 20px 30px;
-	transition: all 674ms ease 0s;
-	width: 300px;
-	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-	border-radius: 1px;
-	background: rgb(122,87,179);
-	--hover-borderSize: 0px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: row-reverse;
-	--hover-bgc: #3a113d;
+    cursor: pointer;
+    border: 0px solid;
+    font-size: 14px;
+    font-style: bold;
+    color: rgb(255, 255, 255);
+    padding: 20px 30px;
+    transition: all 674ms ease 0s;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 1px;
+    background: rgb(122,87,179);
+    --hover-borderSize: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    --hover-bgc: #3a113d;
 }
 
 .btn:hover {
-	color: rgb(255, 255, 255);
-	background: rgb(58, 17, 61) none repeat scroll 0% 0% / auto padding-box border-box;
-	border-color: rgb(204, 0, 105);
-	border-width: 0px;
-	border-style: solid;
+    color: rgb(255, 255, 255);
+    background: rgb(58, 17, 61) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-color: rgb(204, 0, 105);
+    border-width: 0px;
+    border-style: solid;
+	width: 200px;
 }
 
 @media (max-width: 1080px) {
