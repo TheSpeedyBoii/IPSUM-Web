@@ -137,7 +137,6 @@ body {
     border-color: rgb(204, 0, 105);
     border-width: 0px;
     border-style: solid;
-	width: 200px;
 }
 
 @media (max-width: 1080px) {
