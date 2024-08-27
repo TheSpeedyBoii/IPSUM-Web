@@ -11,6 +11,25 @@ class User
 
     public function incorrect_password($password, $confirm_password)
     {
+        if (strlen($password) < 8) {
+            echo "
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script language='JavaScript'>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'La contraseña debe tener al menos 8 caracteres',
+                        confirmButtonColor: '#D63030',
+                        confirmButtonText: 'OK',
+                        timer: 6000
+                    }).then(() => {
+                        location.assign('../view/register.php');
+                    });
+                });
+                </script>";
+            exit();
+        }
+
         if ($password !== $confirm_password) {
             echo "
                 <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
@@ -31,9 +50,10 @@ class User
         }
     }
 
+
     public function validateEmail($email)
     {
-        $email_regex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+        $email_regex = "/^[a-zA-Z0-9._%+-]+@gmail\.com$/";
         if (!preg_match($email_regex, $email)) {
             echo "
                 <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
@@ -41,7 +61,7 @@ class User
                 document.addEventListener('DOMContentLoaded', function() {
                     Swal.fire({
                         icon: 'error',
-                        title: 'El correo no es valido',
+                        title: 'El correo no es válido. Solo se permiten correos de Gmail.',
                         confirmButtonColor: '#D63030',
                         confirmButtonText: 'OK',
                         timer: 6000
@@ -53,6 +73,7 @@ class User
             exit();
         }
     }
+
     public function emailExist($email)
     {
         $count = 0;
@@ -88,31 +109,29 @@ class User
     {
         if (empty($name) || empty($last_name) || empty($password) || empty($phone) || empty($email) || empty($country) || empty($answer1) || empty($answer2) || empty($answer3) || empty($answer4)) {
             echo "
-                    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                    <script language='JavaScript'>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Faltan datos',
-                            confirmButtonColor: '#D63030',
-                            confirmButtonText: 'OK',
-                            timer: 6000
-                        }).then(() => {
-                            location.assign('../view/register.php');
-                        });
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script language='JavaScript'>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Faltan datos',
+                        confirmButtonColor: '#D63030',
+                        confirmButtonText: 'OK',
+                        timer: 6000
+                    }).then(() => {
+                        location.assign('../view/register.php');
                     });
-                    </script>";
+                });
+                </script>";
         } else {
             $PasswordHash = password_hash($password, PASSWORD_DEFAULT);
-            // ---------------------------------------------------------- ---------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
+
             $photo_name = $name . $photo['name'];
             $photo_tmp = $photo['tmp_name'];
             $photo_folder = 'C:/wamp64/www/IPSUM-Web/profile_photos/';
             $folder_destiny = $photo_folder . $photo_name;
+
             if (move_uploaded_file($photo_tmp, $folder_destiny)) {
-
-                $id= 1;
-
                 $stmt = $this->connection->prepare("INSERT INTO users (first_name, last_name, email, phone, country, pass, photo, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("ssssssss", $name, $last_name, $email, $phone, $country, $PasswordHash, $folder_destiny, $role);
                 $stmt->execute();
@@ -124,14 +143,27 @@ class User
                 $stmt->execute();
 
                 $stmt->close();
-                echo '<script>window.location.href="../view/login.php";</script>';
-
+                echo "
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script language='JavaScript'>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario registrado con éxito',
+                        confirmButtonColor: '#D63030',
+                        confirmButtonText: 'OK',
+                        timer: 3000 // Tiempo para mostrar la alerta antes de redirigir
+                    }).then(() => {
+                        window.location.href = '../view/login.php';
+                    });
+                });
+                </script>";
             } else {
                 echo "<script>console.log('Salio mal al mover');</script>";
             }
-
         }
     }
+
 
 
     public function reCaptcha($secret)
