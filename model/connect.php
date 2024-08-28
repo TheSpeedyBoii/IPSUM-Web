@@ -6,6 +6,7 @@ class Connection
     private $password = "";
     private $database = "db_system";
 
+    //Conexión a la base de datos
     public function conMysql()
     {
         $connect = new mysqli($this->host, $this->user, $this->password, $this->database);

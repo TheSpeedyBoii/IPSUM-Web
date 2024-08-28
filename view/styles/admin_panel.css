@@ -34,17 +34,17 @@ body {
 }
 
 .user-info-container, .form-container {
-    flex: 1; /* Ambos contenedores ocupan el mismo espacio disponible */
+    flex: 1; 
     padding: 20px;
     box-sizing: border-box;
-    background-color: #fff; /* Fondo blanco para los contenedores */
-    border: 1px solid #ddd; /* Borde para los contenedores */
-    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
 }
 
 .user-info-container img {
     display: block;
-    margin: 10px auto; /* Centra la imagen horizontalmente */
+    margin: 10px auto; 
 }
 
 
@@ -55,7 +55,7 @@ body {
 }
 
 .form-container input {
-    width: 100%; /* Ocupa todo el ancho disponible */
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -78,30 +78,30 @@ body {
 }
 
 .table-container {
-    width: 100%; /* Ocupa todo el ancho disponible */
+    width: 100%; 
     padding: 20px;
     box-sizing: border-box;
     overflow-x: auto;
-    background-color: #fff; /* Fondo blanco para la tabla */
-    border: 1px solid #ddd; /* Borde para la tabla */
-    border-radius: 5px; /* Esquinas redondeadas para la tabla */
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
     height: calc(100vh - 90px);
 }
 
 table {
-    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
-    border-collapse: collapse; /* Quita el espacio entre celdas */
+    width: 100%; 
+    border-collapse: collapse; 
 }
 
 table, th, td {
-    border: 1px solid #ddd; /* Borde de las celdas */
+    border: 1px solid #ddd; 
 }
 
 th, td {
-    padding: 10px; /* Espacio interno en celdas */
+    padding: 10px; 
     text-align: left;
 }
 
 th {
-    background-color: #f4f4f4; /* Fondo para los encabezados */
+    background-color: #f4f4f4; 
 }

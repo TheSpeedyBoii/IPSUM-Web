@@ -75,6 +75,7 @@ require_once("../controller/controller_questions.php");
                     <input class="input" type="password" id="confirm-password" name="confirm-password" />
                 </div>
                 <div class="input-group">
+                    <label for="photo">Subir foto</label>
                     <input class="photo" type="file" id="photo" name="photo" required />
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le9Iy8qAAAAANMj284IeJEhcTObT4WNwhTTa1h2"></div>
