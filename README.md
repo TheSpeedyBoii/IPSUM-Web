@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> f57d882f34b5e25e83b69f3b12e2393fad78eee8
 <p align="center"><a href=https://www.php.net/"" target="_blank"><img src="https://cdn.freebiesupply.com/logos/large/2x/php-1-logo-png-transparent.png" width="400" alt="Laravel Logo"></a></p>
 
 
@@ -31,3 +34,9 @@ Se adoptó la arquitectura MVC (Modelo-Vista-Controlador) para estructurar el pr
 - Controlador: Actúa como intermediario entre el modelo y la vista, procesando las solicitudes del usuario, actualizando el modelo y generando la respuesta adecuada en la vista.
   
 Además, se implementó un enfoque de programación orientada a objetos, donde se definieron clases para representar las diferentes entidades y funcionalidades del sistema.
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> f57d882f34b5e25e83b69f3b12e2393fad78eee8
